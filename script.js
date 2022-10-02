@@ -1,36 +1,41 @@
 let game = document.body.querySelector("#game");
+let bg = document.body.querySelector("#bg");
+let cat = document.body.querySelector("#cat");
 let buttons = document.body.querySelector("#buttons");
 let start = document.body.querySelector("#start");
+let restart = document.body.querySelector("#restart");
 
-function generateRandomPic() {
 
-}
+const TOTAL_PICS = 25;
 
 function newRound() {
+  let prev = document.querySelector("#cat > img");
+  if (prev) {
+    cat.removeChild(prev);
+  }
   let cashew = document.createElement("img");
-
-
-  game.append(cashew);
+  const randInt = Math.floor(Math.random() * (TOTAL_PICS) + 1);
+  cashew.src = `/imgs/${randInt}.jpg`;
+  cashew.addEventListener("click", newRound);
+  cat.append(cashew);
 }
 
 function restartGame() {
-  location.reload();
+  bg.hidden = true;
+  cat.hidden = true;
+  restart.hidden = true;
+  start.hidden = false;
+  console.log("Restarting game!")
 }
 function startGame() {
-  let restart = document.createElement("button");
-  restart.type = "button";
-  restart.innerText = "Restart";
-  restart.classList.add("btn");
-  restart.classList.add("btn-danger");
-  restart.addEventListener("click", restartGame);
-  buttons.appendChild(restart);
-  buttons.removeChild(start);
-
-  let bg = document.createElement("img");
-  bg.src="/imgs/cow.jpg";
-  game.appendChild(bg);
+  newRound();
+  bg.hidden = false;
+  cat.hidden = false;
+  restart.hidden = false;
+  start.hidden = true;
 
   console.log("Starting Game!");
 }
 
 start.addEventListener("click", startGame);
+restart.addEventListener("click", restartGame);

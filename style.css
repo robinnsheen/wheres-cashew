@@ -1,0 +1,14 @@
+#bg {
+    position: relative;
+    z-index: 1;
+}
+
+#cat > img {
+    width: 200px;
+    height: auto;
+}
+
+#cat {
+    position: absolute;
+    z-index: 2;
+}
