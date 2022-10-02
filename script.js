@@ -12,15 +12,21 @@ function randomizeLocation() {
 
 }
 
-function newRound() {
+function catHandler() {
+  let moo = document.createElement("audio");
+  moo.src = "462770__dobroide__20190301-moo.wav";
+  moo.play();
   let prev = document.querySelector("#cat > img");
-  if (prev) {
-    cat.removeChild(prev);
-  }
+  cat.removeChild(prev);
+  newRound();
+}
+
+function newRound() {
+
   let cashew = document.createElement("img");
   const randInt = Math.floor(Math.random() * (TOTAL_PICS) + 1);
   cashew.src = `imgs/${randInt}.jpg`;
-  cashew.addEventListener("click", newRound);
+  cashew.addEventListener("click", catHandler);
   cat.append(cashew);
 }
 
