@@ -22,7 +22,6 @@ function catHandler() {
 }
 
 function newRound() {
-
   let cashew = document.createElement("img");
   const randInt = Math.floor(Math.random() * (TOTAL_PICS) + 1);
   cashew.src = `imgs/${randInt}.jpg`;
@@ -35,6 +34,8 @@ function restartGame() {
   cat.hidden = true;
   restart.hidden = true;
   start.hidden = false;
+  let prev = document.querySelector("#cat > img");
+  cat.removeChild(prev);
   console.log("Restarting game!")
 }
 function startGame() {
