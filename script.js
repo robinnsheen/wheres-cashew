@@ -8,6 +8,10 @@ let restart = document.body.querySelector("#restart");
 
 const TOTAL_PICS = 25;
 
+function randomizeLocation() {
+
+}
+
 function newRound() {
   let prev = document.querySelector("#cat > img");
   if (prev) {
@@ -15,7 +19,7 @@ function newRound() {
   }
   let cashew = document.createElement("img");
   const randInt = Math.floor(Math.random() * (TOTAL_PICS) + 1);
-  cashew.src = `/imgs/${randInt}.jpg`;
+  cashew.src = `imgs/${randInt}.jpg`;
   cashew.addEventListener("click", newRound);
   cat.append(cashew);
 }
