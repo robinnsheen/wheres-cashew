@@ -27,7 +27,7 @@ function randomizeLocation(image) {
   const catWidth = image.width;
   const maxHeight = +(window.getComputedStyle(game).height.split("px")[0]);
   const maxWidth = +(window.getComputedStyle(game).width.split("px")[0]);
-  const minHeight = +(window.getComputedStyle(game).marginTop.split("px")[0]+ catHeight/2);
+  const minHeight = +(window.getComputedStyle(game).marginTop.split("px")[0]);
   const minWidth = +(window.getComputedStyle(game).marginRight.split("px")[0]);
 
   const xy = [getRandomInt(minWidth, maxWidth), getRandomInt(minHeight, maxHeight)];
