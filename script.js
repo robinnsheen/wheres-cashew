@@ -1,3 +1,5 @@
+"use strict";
+
 let game = document.body.querySelector("#game");
 let bg = document.body.querySelector("#bg");
 let cat = document.body.querySelector("#cat");
