@@ -4,9 +4,16 @@ let cat = document.body.querySelector("#cat");
 let buttons = document.body.querySelector("#buttons");
 let start = document.body.querySelector("#start");
 let restart = document.body.querySelector("#restart");
+let catFact = document.body.querySelector("#cat-fact");
 
 
 const TOTAL_PICS = 25;
+
+async function getCatFact() {
+  const response = await fetch('https://catfact.ninja/fact');
+  const fact = await response.json();
+  return fact
+}
 
 function getRandomInt(min, max) {
   min = Math.ceil(min);
@@ -28,12 +35,15 @@ function randomizeLocation(image) {
   cat.style.left = xy[0] + 'px';
 }
 
-function catClickHandler() {
+async function catClickHandler() {
   let moo = document.createElement("audio");
   moo.src = "233146__jarredgibb__cow-moan-2-96khz.wav";
   moo.play();
   let prev = document.querySelector("#cat > img");
   cat.removeChild(prev);
+  let fact = await getCatFact()
+  console.log(fact)
+  catFact.innerText = fact.fact;
   newRound();
 }
 
