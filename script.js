@@ -20,7 +20,7 @@ function randomizeLocation(image) {
   cat.style.left = xy[0] + 'px';
 }
 
-function catHandler() {
+function catClickHandler() {
   let moo = document.createElement("audio");
   moo.src = "233146__jarredgibb__cow-moan-2-96khz.wav";
   moo.play();
@@ -33,7 +33,7 @@ function newRound() {
   let cashew = document.createElement("img");
   const randInt = Math.floor(Math.random() * (TOTAL_PICS) + 1);
   cashew.src = `imgs/${randInt}.jpg`;
-  cashew.addEventListener("click", catHandler);
+  cashew.addEventListener("click", catClickHandler);
   cat.append(cashew);
   randomizeLocation(cashew);
 }
