@@ -8,8 +8,16 @@ let restart = document.body.querySelector("#restart");
 
 const TOTAL_PICS = 25;
 
-function randomizeLocation() {
+function randomizeLocation(image) {
+  const catHeight = image.height;
+  const catWidth = image.width;
+  const maxHeight = bg.offsetHeight - catHeight;
+  const maxWidth = bg.offsetWidth - catWidth;
 
+  const xy = [Math.floor(Math.random() * maxWidth),
+                            Math.floor(Math.random() * maxHeight)];
+  cat.style.top = xy[1] + 'px';
+  cat.style.left = xy[0] + 'px';
 }
 
 function catHandler() {
@@ -27,6 +35,7 @@ function newRound() {
   cashew.src = `imgs/${randInt}.jpg`;
   cashew.addEventListener("click", catHandler);
   cat.append(cashew);
+  randomizeLocation(cashew);
 }
 
 function restartGame() {
