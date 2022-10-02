@@ -14,7 +14,7 @@ function randomizeLocation() {
 
 function catHandler() {
   let moo = document.createElement("audio");
-  moo.src = "462770__dobroide__20190301-moo.wav";
+  moo.src = "233146__jarredgibb__cow-moan-2-96khz.wav";
   moo.play();
   let prev = document.querySelector("#cat > img");
   cat.removeChild(prev);
@@ -38,6 +38,7 @@ function restartGame() {
   cat.removeChild(prev);
   console.log("Restarting game!")
 }
+
 function startGame() {
   newRound();
   bg.hidden = false;
