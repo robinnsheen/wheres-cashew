@@ -7,6 +7,8 @@ let buttons = document.body.querySelector("#buttons");
 let start = document.body.querySelector("#start");
 let restart = document.body.querySelector("#restart");
 let catFact = document.body.querySelector("#cat-fact");
+let board = document.body.querySelector("#board");
+let bgimg = window.getComputedStyle(board).backgroundImage;
 
 
 const TOTAL_PICS = 25;
@@ -65,6 +67,7 @@ function restartGame() {
   start.hidden = false;
   let prev = document.querySelector("#cat > img");
   cat.removeChild(prev);
+  board.classList.add("with-background");
   console.log("Restarting game!")
 }
 
@@ -74,6 +77,7 @@ function startGame() {
   cat.hidden = false;
   restart.hidden = false;
   start.hidden = true;
+  board.classList.remove("with-background");
 
   console.log("Starting Game!");
 }
