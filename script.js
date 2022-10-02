@@ -8,14 +8,22 @@ let restart = document.body.querySelector("#restart");
 
 const TOTAL_PICS = 25;
 
+function getRandomInt(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min) + min);
+  // The maximum is exclusive and the minimum is inclusive
+}
+
 function randomizeLocation(image) {
   const catHeight = image.height;
   const catWidth = image.width;
-  const maxHeight = bg.offsetHeight - catHeight;
-  const maxWidth = bg.offsetWidth - catWidth;
+  const maxHeight = +(window.getComputedStyle(game).height.split("px")[0]);
+  const maxWidth = +(window.getComputedStyle(game).width.split("px")[0]);
+  const minHeight = +(window.getComputedStyle(game).marginTop.split("px")[0])
+  const minWidth = +(window.getComputedStyle(game).marginRight.split("px")[0])
 
-  const xy = [Math.floor(Math.random() * maxWidth),
-                            Math.floor(Math.random() * maxHeight)];
+  const xy = [getRandomInt(minWidth, maxWidth), getRandomInt(minHeight, maxHeight)];
   cat.style.top = xy[1] + 'px';
   cat.style.left = xy[0] + 'px';
 }
